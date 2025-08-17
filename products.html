@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            All Products - Alawusa Heritage Store
+        </title>
+        <link rel="shortcut icon" href="Alawusa heritage icon - Icon.png" type="img">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?
+        family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <!-- AOS CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2NQHJMLJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B2NQHJMLJ6');
+        </script>
+
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="logo">
+                <a href="index.html"><img src="Alawusa heritage logo.png" width="150px"></a>
+            </div>
+             <div class="navbar">
+           
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html" style="font-weight: bold;">Home</a></li>
+                    <li><a href="products.html" style="font-weight: bold;">Products</a></li>
+                    <li><a href="aboutus.html" style="font-weight: bold;">About Us</a></li>
+                    <li><a href="contact.html" style="font-weight: bold;">Contact</a></li>
+                    <li><a href="account.html" style="font-weight: bold;">Account</a></li>
+                    <li><a href="testimonial.html" style="font-weight: bold;">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+            <a href="cart.html">
+            <img src="shopping-cart.png" width="30px" height="30px" style="margin-bottom: 40px;">
+            <span id="cart-count" style="background:red; color:white; padding:2px 6px; border-radius:50%; font-size:12px; 
+            position:relative; top:-60px; left:-10px;">0</span>
+            </a>
+            <img src="menu bar.png" class="menu-icon" onclick="menutoggle()" style="margin-bottom: 40px;">
+            </div>
+        </div>
+       
+        </div>
+    </div>
+
+        <!-------Category selection------>
+        <div class="small-container" style="display: flex; align-items: center; flex-wrap: wrap;  justify-content: space-between; margin-top: 100px;" 
+        data-aos="fade-up">
+                <h2 id="productTitle" style="margin: 20px; font-family: cursive;">All Products</h2>
+                <select id="categorySelect" onchange="filterProducts()">
+                    <option value="all">All Categories</option>
+                    <option value="poultry">Poultry & Eggs</option>
+                    <option value="fish">Fish</option>
+                    <option value="landanimals">Land animals</option>
+                    <option value="seafood">Sea Food</option>
+                </select>
+        </div>
+
+            <!------Product Listing------>
+            <div class="products">
+
+                <div class="product fish" style="text-align: center; margin: 50px; margin-bottom: 70px;" data-aos="fade-up">
+                                <a href="productdetailsforcatfish.html">
+                                    <img src="catfish pic.jpeg" style="width: 350px; height: 220px; margin-top: 20px; border-radius: 10px;">
+                                    
+                                    <h3>Alawusa Farm Fresh Catfish</h3>
+                                    <p>Category: Fish</p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>2,000 - <strike>N</strike>4,000</p>
+                                </a>
+                </div>
+            
+                    
+                        
+                        <div class="product poultry" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                            <a href="productdetailsforlivechicken.html">
+                            <img src="Live chicken sticker.png" style="border-radius: 10px;">
+                            <h3>Alawusa Farm-Fresh Live Chicken</h3>
+                            <p>Category: Poultry & Eggs</p>
+                                <div class="rating">
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                </div>
+                            <p style="font-size: larger;"><strike>N</strike>15,000 - <strike> N</strike>35,000</p>
+                                </a>
+                        </div>
+
+                        
+                        <div class="product fish" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforrayfish.html">
+                                    <img src="Ray fish sticker.png" style="border-radius: 10px;">
+                                    <h3>Alawusa Sourced Rayfish</h3>
+                                    <p>Category: Fish </p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>80,000 - <strike>N</strike>195,000</p>
+                                </a>
+                        </div>
+                        
+
+                        
+                        <div class="product landanimals" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforlivepigs.html">
+                                    <img src="pig sticker.png" style="border-radius: 10px;">
+                                    <h3>Alawusa Farm Fresh Live Pigs</h3>
+                                    <p>Category: Land Animals</p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>30,000 - <strike> N</strike>200,000</p>
+                                </a>
+                        </div>
+                    
+
+                                
+                            <div class="product poultry" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforeggs30holes.html">
+                                <img src="Chicken Eggs 30 holes sticker.png" style="height: 200px; width: 300px; border-radius: 10px;">
+                                <h3>Chicken Eggs in 30 holes</h3>
+                                <h4>Transparent Pack</h4>
+                                <p>Category: Poultry & Eggs</p>
+                                    <div class="rating">
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                    </div>
+                                    <p style="font-size: larger;"><strike>N</strike>6,000</p>
+                                </a>
+                            </div>
+
+                        
+                        <div class="product poultry" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                            <a href="productdetailsforprocessedchicken.html">
+                                <img src="processed chicken sticker.png" style="border-radius: 10px;">
+                                <h3>Alawusa Farm-Fresh Full Processed Chicken</h3>
+                                <p>Category: Poultry & Eggs</p>
+                                <div class="rating">
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                </div>
+                                <p style="font-size: larger;"><strike>N</strike>15,000 - <strike> N</strike>35,000</p>
+                                </a>
+                        </div>
+
+                        <div class="product poultry" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                            <a href="productdetailsfor1kgprocessedchicken.html">
+                                <img src="processed chicken sticker.png" style="border-radius: 10px;">
+                                <h3>Alawusa Farm-Fresh 1kg Processed Chicken</h3>
+                                <p>Category: Poultry & Eggs</p>
+                                <div class="rating">
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                    <span style="color: #4caf50;">&starf;</span>
+                                </div>
+                                <p style="font-size: larger;"><strike>N</strike>5,500</p>
+                                </a>
+                        </div>
+
+                        <div class="product fish" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                            <a href="productdetailsfordrysmokedsolefish.html">
+                                    <img src="sole fish sticker.png" style="width: 300px; height: 200px; border-radius: 10px;">
+                                    <h3>Alawusa Sourced Dry Smoked Solefish</h3>
+                                    <p>Category: Fish</p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>5,500 - <strike>N</strike>10,000</p>
+                                </a>
+                        </div>
+
+                         
+            
+            
+                            
+                            
+                            <div class="product landanimals" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforpork.html">
+                                <img src="Pork sticker.png" style="border-radius: 10px;">
+                                <h3>Alawusa Farm Fresh Pork</h3>
+                                <p>Category: Land Animals</p>
+                                    <div class="rating">
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                    </div>
+                                    <p style="font-size: larger;"><strike>N</strike>3,500.00 | <strike>N</strike>5,500.00 <br>
+                                        <strike>N</strike>10,000.00</p>
+                                </a>
+
+                            </div>
+
+                            
+                            
+                            <div class="product poultry" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforeggs15holes.html">
+                                <img src="Chicken Eggs 15 holes sticker.png" style="height: 220px; margin-top: 20px; border-radius: 10px;">
+                                <h3>Chicken Eggs in 15 holes</h3>
+                                <h4>Transparent Pack</h4>
+                                <p>Category: Poultry & Eggs</p>
+                                    <div class="rating">
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                        <span style="color: #4caf50;">&starf;</span>
+                                    </div>
+                                    <p style="font-size: larger;"><strike>N</strike>3,000</p>
+                                </a>
+                            </div>
+                            
+                            
+                            <div class="product fish" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforprocessedrayfish.html">
+                                    <img src="Processed Rayfish sticker.png" style="border-radius: 10px;">
+                                    <h3>Alawusa Sourced Fresh Rayfish</h3>
+                                    <p>Category: Fish </p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>2,000</p>
+                                </a>
+                            </div>
+
+                             
+
+
+                            <div class="product fish" style="text-align: center; margin: 50px;" data-aos="fade-up"> 
+                                <a href="productdetailsfordrysmokedrayfish.html">
+                                    <img src="Dry smoked rayfish sticker.png" style="border-radius: 10px;">
+                                    <h3>Alawusa Sourced Dry Smoked Rayfish</h3>
+                                    <p>Category: Fish</p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>2,500</p>
+                                </a>
+                            </div>
+
+                                
+
+                                
+                            <div class="product fish" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsfordriedcatfish.html">
+                                    <img src="Dried catfish sticker.png" style="border-radius: 10px;">
+                                    <h3>Alawusa Dried Catfish (Carton)</h3>
+                                    <p>Category: Fish</p>
+                                        <div class="rating">
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                            <span style="color: #4caf50;">&starf;</span>
+                                        </div>
+                                        <p style="font-size: larger;"><strike>N</strike>20,000 - <strike>N</strike>50,000</p>
+                                </a>
+
+                            </div>
+
+                            <div class="product seafood" style="text-align: center; margin: 50px;" data-aos="fade-up">
+                                <a href="productdetailsforseafood.html">
+                                    <img src="sourced seafood sticker.png" style="width: 250px; height: 210px; border-radius: 10px;">
+                                        <h3>Alawusa Diverse Sourced Sea Food (Frozen, Bagged) </h3>
+                                        <p>Category: Sea Food </p>
+                                            <div class="rating">
+                                                <span style="color: #4caf50;">&starf;</span>
+                                                <span style="color: #4caf50;">&starf;</span>
+                                                <span style="color: #4caf50;">&starf;</span>
+                                                <span style="color: #4caf50;">&starf;</span>
+                                                <span style="color: #4caf50;">&starf;</span>
+                                            </div>
+                                            <p style="font-size: larger;"><strike>N</strike>40,000 - <strike>N</strike>110,000</p>
+                                </a>
+                            </div> 
+
+                        
+                            
+            </div>
+            
+            
+             
+    
+    
+
+    <!----Footer---->
+    <div class="footer" style="padding: 5px 0 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>
+                       Customer Service
+                    </h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-2">
+                    <img src="Alawusa heritage logo.png">
+                    
+                </div>
+                <div class="footer-col-3">
+                    <h3>
+                       Useful Links
+                    </h3>
+                    <ul>
+                        <li><a href="blogpost.html">Farm Tips/Blog Post</a></li><br>
+                        <li><a href="ourfarm.html">Our Farm/Sustainability</a></li><br>
+                        <li><a href="recipes.html">Recipes</a></li><br>
+                        <li><a href="aboutus.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>
+                       Our Social Media Links
+                    </h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ==">Instagram</a></li>
+                        <li><a href="https://wa.link/zp8ngg">Whatsapp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr><p class="copyright">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+        </div>
+    </div>
+
+    <!-------js script for menu toggle------>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                  MenuItems.style.maxHeight = "300px"  
+                }
+            else
+                {
+                    MenuItems.style.maxHeight = "0px"
+                }
+        }
+    </script>
+
+    <!-----js script for filter products---->
+    <script>
+        function filterProducts(){
+            const category = document.getElementById('categorySelect').value;
+            const products = document.querySelectorAll('.product');
+            const title = document.getElementById('productTitle');
+
+            if (category === 'all') {
+            title.textContent = 'All Products';
+        } else if (category === 'poultry') {
+            title.textContent = 'Poultry & Eggs';
+        } else if (category === 'fish') {
+            title.textContent = 'Fish';
+        } else if (category === 'landanimals') {
+            title.textContent = 'Land Animals';
+        }else if (category === 'seafood') {
+            title.textContent = 'Sea Food';
+        }
+
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+
+        window.onload = filterProducts;
+    </script>
+
+    <!---Update cart count badge in the navbar--->
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+      cartCount.textContent = totalItems;
+    }
+  }
+
+  // call this on page load
+  updateCartCount();
+
+</script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: false,     // animate only once while scrolling down
+  });
+</script>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2,
+  });
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ | Alawusa Heritage Fish & Farms</title>
+  <link rel="shortcut icon" href="Alawusa heritage icon - Icon.png" type="img">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?
+  family=Lato:wght@700&display=swap">
+        <link href="https://fonts.googleapis.com/css2?
+        family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-family: cursive;
+    }
+    
+
+    .faq-item {
+      background-color: #fff;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      background-color: #f1f1f1;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #333;
+      margin-left: 30px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px 20px;
+      border-top: 1px solid #ddd;
+      color: #444;
+      background-color: #fff;
+      margin-left: 30px;
+      font-family: cursive;
+    }
+
+    .active .faq-answer {
+      display: block;
+    }
+    @keyframes typing {
+      0%, 26% { content: 
+        "";}
+      27%, 25% { content: 
+        "F";}
+      28%, 24% { content: 
+        "Fr";}
+        29%, 23% { content: 
+        "Fre";}
+        30%, 22% { content: 
+        "Freq";}
+        31%, 21% { content: 
+        "Frequ";}
+        32%, 20% { content: 
+        "Freque";}
+        33%, 19% { content: 
+        "Frequen";}
+        34%, 18% { content: 
+        "Frequent";}
+        36%, 17% { content: 
+        "Frequentl";}
+        40%, 16% { content: 
+        "Frequently";}
+        44%, 15% { content: 
+        "Frequently A";}
+        48%, 14% { content: 
+        "Frequently As";}
+        52%, 13% { content: 
+        "Frequently Ask";}
+        56%, 12% { content: 
+        "Frequently Aske";}
+        60%, 11% { content: 
+        "Frequently Asked";}
+        64%, 10% { content: 
+        "Frequently Asked Q";}
+        68%, 9% { content: 
+        "Frequently Asked Qu";}
+        72%, 8% { content: 
+        "Frequently Asked Que";}
+        76%, 7% { content: 
+        "Frequently Asked Ques";}
+        80%, 6% { content: 
+        "Frequently Asked Quest";}
+        84%, 5% { content: 
+        "Frequently Asked Questi";}
+        88%, 4% { content: 
+        "Frequently Asked Questio";}
+        92%, 3% { content: 
+        "Frequently Asked Question";}
+        96%, 2% { content: 
+        "Frequently Asked Questions";}
+        100%, 1% { content: 
+        "Frequently Asked Questions ";}
+      
+      
+    }
+
+    @keyframes blink {
+       100% { opacity: 1;}
+      50% { opacity: 0;}
+    }
+    .typewriter {
+      --caret: currentcolor;
+    }
+    .typewriter::before {
+      content: "";
+      animation: typing 5.5s linear infinite;
+    }
+    .typewriter::after {
+      content: "";
+      border-right: 1px solid var(--caret);
+      animation: blink 0.5s infinite;
+    }
+    
+    .typewriter.thick::after {
+      border-right: 1ch solid var(--caret);
+    }
+    
+    @media only screen and (max-width: 1000px){
+      .hero-1{
+        margin-left: 0px;
+      }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2NQHJMLJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B2NQHJMLJ6');
+        </script>
+        
+</head>
+<body>
+    <body>
+        <div class="header">
+            <div class="logo">
+                <a href="index.html"><img src="Alawusa heritage logo.png" width="150px"></a>
+            </div>
+
+            <div class="navbar">
+           
+              <nav>
+                  <ul id="MenuItems">
+                      <li><a href="index.html" style="font-weight: bold;">Home</a></li>
+                      <li><a href="products.html" style="font-weight: bold;">Products</a></li>
+                      <li><a href="aboutus.html" style="font-weight: bold;">About Us</a></li>
+                      <li><a href="contact.html" style="font-weight: bold;">Contact</a></li>
+                      <li><a href="account.html" style="font-weight: bold;">Account</a></li>
+                      <li><a href="testimonial.html" style="font-weight: bold;">Testimonial</a></li>
+                      
+                  </ul>
+              </nav>
+              <a href="cart.html">
+            <img src="shopping-cart.png" width="30px" height="30px" style="margin-bottom: 40px;">
+            <span id="cart-count" style="background:red; color:white; padding:2px 6px; border-radius:50%; font-size:12px;
+             position:relative; top:-60px; left:-10px;">0</span>
+            </a>
+              <img src="menu bar.png" class="menu-icon" onclick="menutoggle()" style="margin-bottom: 40px;">
+            </div>
+        </div>
+
+     <section class="hero" style="margin-top: 0px; background: url(faq.jpg) center/cover no-repeat;" >
+  <div class="hero-content">
+    <h1 aria-label="Frequently Asked Questions" style="font-family: monospace; font-weight: bold;">&nbsp;<span class="typewriter"></span></h1>
+    
+
+    <P style="color: rgb(226, 226, 157);" >Everything you need to know about our farm and products</P>
+  </div>
+
+</section>
+        
+        
+
+          <div class="section">
+            <div class="faq-item">
+              <div class="faq-question">What products do you offer?</div>
+              <div class="faq-answer">We offer farm-fresh catfish (live and smoked), poultry (chicken and fresh eggs), pigs, and a wide selection of sourced seafood such as Croaker, Mackerel, Herring, and Hake.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Is your smoked fish truly preservative-free?</div>
+              <div class="faq-answer">Yes! Our smoked fish is 100% natural — smoked using traditional methods and firewood. No chemicals or artificial preservatives are added.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Can I buy in bulk for resale or restaurant use?</div>
+              <div class="faq-answer">Absolutely. We supply to local food vendors, supermarkets, and restaurants. Bulk orders come with discounts and consistent quality assurance.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">How do I place an order?</div>
+              <div class="faq-answer">You can order by visiting our farm or retail outlets, calling or WhatsApping our sales line, or using our website.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Do you offer delivery?</div>
+              <div class="faq-answer">Yes. We offer 24 to 48 hours delivery within Lagos and Ogun State, <br>
+                 3 - 7 days for other areas in Nigeria
+                 outside Lagos and Ogun State, <br>
+                  7 - 14 days outside Nigeria (Abroad). <br>
+                 Delivery fees depend on location and order size.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Are your products safe and healthy?</div>
+              <div class="faq-answer">Yes! All products are raised with clean water, quality feed, and strict hygiene protocols. No harmful chemicals or antibiotics. Just clean, natural protein.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Do you accept custom orders?</div>
+              <div class="faq-answer">Yes. We can handle custom processing and packaging.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">How fresh are your eggs?</div>
+              <div class="faq-answer">Our eggs are collected daily from healthy layers and delivered quickly to ensure you enjoy them at peak freshness.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Do you practice sustainable farming?</div>
+              <div class="faq-answer">Absolutely. Our practices include water recycling for fish ponds, composting animal waste into fertilizer, a zero-waste goal, and natural feeding routines. We believe in feeding homes today without harming tomorrow.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">What is the shelf life of your fish (dried/smoked)?</div>
+              <div class="faq-answer">Our Dried / Smoked fish has a shelf life of six months.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">How can I contact you?</div>
+              <div class="faq-answer">Visit our office or reach us on our social media platform or contact us: <br>
+                  +2348022276254.<br> You can also email us:  alawusaheritage@gmail.com</div>
+            </div>
+          </div>
+          
+
+  <!---Newsletter--->
+        <div class="newsletter">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <br>
+                <p>Get E-mail updates about our latest products and <span>special offers.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your E-mail Address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </div>
+  
+            
+            
+
+
+   <!----Footer---->
+    <div class="footer" style="margin-top: 150px;">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>
+                       Customer Service
+                    </h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-2">
+                    <img src="Alawusa heritage logo.png">
+                    
+                </div>
+                <div class="footer-col-3">
+                    <h3>
+                       Useful Links
+                    </h3>
+                    <ul>
+                       <li><a href="blogpost.html">Farm Tips/Blog Post</a></li><br>
+                        <li><a href="ourfarm.html">Our Farm/Sustainability</a></li><br>
+                        <li><a href="recipes.html">Recipes</a></li><br>
+                        <li><a href="aboutus.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>
+                       Our Social Media Links
+                    </h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ==">Instagram</a></li>
+                        <li><a href="https://wa.link/zp8ngg">Whatsapp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr><p class="copyright">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+        </div>
+    </div>
+
+
+ <!-------js script for menu toggle------>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                  MenuItems.style.maxHeight = "300px"  
+                }
+            else
+                {
+                    MenuItems.style.maxHeight = "0px"
+                }
+        }
+    </script>
+
+    <!---js script for faq-->
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+  <!---Update cart count badge in the navbar--->
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+      cartCount.textContent = totalItems;
+    }
+  }
+
+  // call this on page load
+  updateCartCount();
+
+</script>
+
+</body>
+</html>
