@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Dashboard | Alawusa Heritage</title>
+  <link rel="shortcut icon" href="Alawusa heritage icon - Icon.png" type="img">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .header {
+      background-color: #fdfafa;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 120px;
+    }
+
+    .cart-wrapper {
+      position: relative;
+    }
+
+    .cart-wrapper img {
+      width: 28px;
+      height: 28px;
+    }
+
+    #cart-count {
+      background: red;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
+
+    header {
+      background-color: #28a745;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .menu-btn {
+      background: url("../img/background\ pic\ 1.webp") center/cover no-repeat;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      position: absolute;
+      left: -300px;
+      top: -70px;
+    }
+
+    .dropdown {
+      display: none;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 250px;
+      left: 15px;
+      z-index: 100;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 15px;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s;
+    }
+
+    .dropdown a:hover {
+      background-color: #eaf5ea;
+    }
+
+    .dashboard-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .dashboard-container h2 {
+      color: #28a745;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 250px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #28a745;
+    }
+
+    .card a {
+      color: #28a745;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #1f2222;
+      padding: 40px 20px;
+      margin-top: 100px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+      flex: 1 1 200px;
+    }
+
+    .footer-col-2 img {
+      width: 120px;
+      margin-top: 20px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .footer h3{
+      color: #fff;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo img {
+        width: 100px;
+      }
+
+      .cart-wrapper {
+      position: absolute;
+      margin-left: 300px;
+      margin-top: 30px;
+    }
+
+    .cart-wrapper img {
+      width: 24px;
+      height: 24px;
+    }
+
+    #cart-count {
+      background: red;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
+
+      
+
+      .menu-btn {
+        font-size: 18px;
+        top: 10px;
+        left: 10px;
+      }
+      .dropdown {
+        display: none;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 180px;
+        left: 15px;
+        z-index: 100;
+        border-radius: 5px;
+        width: 150px;
+        font-size: 14px;
+      }
+      header h1{
+        margin-top: 50px;
+      }
+
+      .dashboard-container h2 {
+        margin-left: 0;
+        font-size: 20px;
+      }
+
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+        text-align: center;
+      }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2NQHJMLJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B2NQHJMLJ6');
+        </script>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <a href="index.html"><img src="Alawusa heritage logo.png" alt="Logo"></a>
+    </div>
+    <div class="cart-wrapper">
+      <a href="cart.html">
+        <img src="shopping-cart.png" alt="Cart">
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+<section class="hero" style="margin-top: 0px;">
+  <div class="hero-content" data-aos="fade-up">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <h1 class="zoom-text">Providing High-quality, Farm-fresh Protein Solutions</h1>
+    <p class="">Building on over 40 years of family legacy in sustainable agriculture and innovating Nigeria's food supply</p>
+    
+  </div>
+
+</section>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown" id="menuDropdown">
+    <a href="userdashboard.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+    <a href="#">Account Settings</a>
+    <a href="testimonial.html">Testimonial</a>
+    <a href="account.html">Logout</a>
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="dashboard-container">
+    <div class="card-grid">
+      <div class="card">
+        <h3>Orders</h3>
+        <p>You have placed <strong>0</strong> orders.</p>
+        <a href="#">View Order History</a>
+      </div>
+      <div class="card">
+        <h3>Saved Addresses</h3>
+        <p>No saved addresses yet.</p>
+        <a href="#">Manage Addresses</a>
+      </div>
+      <div class="card">
+        <h3>Newsletter</h3>
+        <p>You are <strong>subscribed</strong> to our newsletter.</p>
+        <a href="#">Edit Preferences</a>
+      </div>
+      <div class="card">
+        <h3>Account Settings</h3>
+        <p>Keep your info up to date.</p>
+        <a href="#">Update Settings</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-2">
+          <img src="Alawusa heritage logo.png" alt="Logo">
+        </div>
+        <div class="footer-col-3">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="blogpost.html">Farm Tips/Blog Post</a></li>
+            <li><a href="ourfarm.html">Our Farm/Sustainability</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3>Our Social Media Links</h3>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ==">Instagram</a></li>
+            <li><a href="https://wa.link/zp8ngg">Whatsapp</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="copyright">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      var dropdown = document.getElementById("menuDropdown");
+      dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.menu-btn')) {
+        var dropdown = document.getElementById("menuDropdown");
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        }
+      }
+    };
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) {
+        cartCount.textContent = totalItems;
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>
