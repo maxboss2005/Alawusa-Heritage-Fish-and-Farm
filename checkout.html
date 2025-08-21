@@ -2,177 +2,223 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout | Alawusa Heritage Fish & Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
       margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 550px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     h1 {
       text-align: center;
-      color: #2e7d32;
+      color: #222;
+      margin-bottom: 10px;
     }
-    form {
-      max-width: 400px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #2e7d32;
-      color: white;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1b5e20;
-    }
-
-    /* Modal styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
+    p {
+      font-size: 15px;
+      line-height: 1.6;
       text-align: center;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      color: #555;
     }
-    .modal-content h2 {
-      color: #2e7d32;
+    .bank-details {
+      margin-top: 25px;
+      padding: 20px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
     }
-    .modal-content button {
-      margin-top: 15px;
-      background: #2e7d32;
-      color: white;
-      padding: 10px 15px;
+    .bank-details strong {
+      color: #000;
+    }
+    .copy-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      background: #fff;
+      color: rgb(10, 10, 10);
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 14px;
+      border: 1px solid black;
     }
-    .modal-content button:hover {
-      background: #1b5e20;
+    .copy-btn:hover {
+      background: #bdbfc0;
+    }
+    .whatsapp-btn {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      padding: 12px;
+      background: #25d366;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebc57;
+    }
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      background: #555;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-btn:hover {
+      background: #333;
+    }
+    .amount {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #111;
+    }
+    .form-group {
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <h1>Checkout</h1>
-  <form id="checkoutForm">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" required>
+  <div class="container">
+    <h1>Complete Your Payment</h1>
+    <p>Please transfer the total amount to the bank account below:</p>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" required>
-
-    <label for="address">Address</label>
-    <input type="text" id="address" required>
-
-    <button type="submit">Place Order</button>
-  </form>
-
-  <!-- Modal -->
-  <div class="modal" id="confirmationModal">
-    <div class="modal-content">
-      <h2>Order Placed Successfully!</h2>
-      <p>Thank you for shopping with Alawusa Heritage Fish & Farms.</p>
-      <button id="continueShopping">Continue Shopping</button>
+    <div class="bank-details">
+      <strong>Account Name:</strong> Alawusa Heritage Fish & Farms <br>
+      <strong>Bank Name:</strong> First Bank of Nigeria <br>
+      <strong>Account Number:</strong> <span id="accountNumber">1234567890</span> 
+      <button class="copy-btn" onclick="copyAccountNumber()">Copy</button> <br>
+      <div class="amount">Amount: <span id="totalAmount">₦0</span></div>
     </div>
+
+    <!-- Customer Details -->
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="customerName" placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="customerEmail" placeholder="Enter your email address">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" id="customerPhone" placeholder="Enter your phone number">
+    </div>
+    <div class="form-group">
+      <label>Delivery Address</label>
+      <textarea id="customerAddress" placeholder="Enter your delivery address"></textarea>
+    </div>
+
+    <a id="whatsappLink" class="whatsapp-btn" target="_blank" onclick="sendWhatsApp()">Send Payment Proof via WhatsApp</a>
+    <a href="index.html" class="back-btn">← Back to Home</a>
   </div>
 
   <script>
-    const checkoutForm = document.getElementById('checkoutForm');
-    const modal = document.getElementById('confirmationModal');
-    const continueBtn = document.getElementById('continueShopping');
+  const total = localStorage.getItem('checkoutTotal') || 0;
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    checkoutForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  document.getElementById('totalAmount').innerText = `₦${parseFloat(total).toLocaleString()}`;
 
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-      }
-
-      const data = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        address: document.getElementById('address').value,
-        cart: JSON.stringify(cart),
-        total: total
-      };
-
-      try {
-        const response = await fetch("YOUR_GOOGLE_SCRIPT_WEBAPP_URL", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        const text = await response.text();
-        if (text.includes("Success")) {
-          // Show modal
-          modal.style.display = "flex";
-          // Clear cart
-          localStorage.removeItem('cart');
-        } else {
-          alert("Failed to place order. Please try again.");
-        }
-      } catch (error) {
-        alert("Error: " + error);
-      }
+  function copyAccountNumber() {
+    const accountNumber = document.getElementById('accountNumber').innerText;
+    navigator.clipboard.writeText(accountNumber).then(() => {
+      alert("Account number copied!");
     });
+  }
 
-    // Continue shopping button
-    continueBtn.addEventListener('click', () => {
-      modal.style.display = "none";
-      window.location.href = "index.html"; // Redirect to home page
+  // 🔹 Save order to Google Sheet
+  function saveOrder(name, email, phone, address, cart, total) {
+    let cartDetails = cart.map(item => `${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}`).join(", ");
+
+    let orderData = {
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      cart: cartDetails,
+      total: total
+    };
+
+    // 🚨 Replace with your Google Apps Script Web App URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxqjQZOhVSIx00JZ63jzBIBcjlZ3HWEGiaVg34AYb49nAFZJdFVmKsRqjOBFRKAsiAkxw/exec";
+
+    return fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(orderData),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(res => res.text())
+    .then(data => {
+      console.log("✅ Order saved:", data);
+    })
+    .catch(err => {
+      console.error("❌ Error saving order:", err);
     });
+  }
 
-    // Close modal on outside click
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+  // 🔹 Modified WhatsApp function
+  function sendWhatsApp() {
+    let name = document.getElementById("customerName").value.trim();
+    let email = document.getElementById("customerEmail").value.trim();
+    let phone = document.getElementById("customerPhone").value.trim();
+    let address = document.getElementById("customerAddress").value.trim();
+
+    if (!name || !email || !phone || !address) {
+      alert("Please fill in all your details before proceeding.");
+      return false;
     }
-  </script>
+
+    // Save order online first
+    saveOrder(name, email, phone, address, cart, total).then(() => {
+      // Then continue to WhatsApp
+      let cartDetails = "";
+      cart.forEach((item, index) => {
+        cartDetails += `${index + 1}. ${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}\n`;
+      });
+
+      const whatsappNumber = "2348022276254"; 
+      const message = `Hello, I just made a payment of ₦${parseFloat(total).toLocaleString()} to your account.\n
+Name: ${name}\n
+Email: ${email}\n
+Phone: ${phone}\n
+Address: ${address}\n
+Order Details:\n${cartDetails}\n
+Please find my payment proof attached.`;
+
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    });
+  }
+</script>
+
 </body>
 </html>
