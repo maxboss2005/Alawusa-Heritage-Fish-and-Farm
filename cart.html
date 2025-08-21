@@ -291,10 +291,17 @@
   }
 
   function checkout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add items before proceeding to checkout.");
+    return;
+  }
+
   const total = document.getElementById('total').innerText.replace(/₦|,/g, "");
   localStorage.setItem('checkoutTotal', total);
+  localStorage.setItem('cart', JSON.stringify(cart));
   window.location.href = "checkout.html";
 }
+
 
 
   renderCart();
@@ -318,3 +325,4 @@
 
 </body>
 </html>
+
