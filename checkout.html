@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Checkout | Alawusa Heritage Fish & Farms</title>
+  <link rel="shortcut icon" href="img/Alawusa heritage icon - Icon.png" type="img">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,7 +15,7 @@
       padding: 0;
       color: #333;
     }
-    .container {
+    .container-1 {
       max-width: 550px;
       margin: 50px auto;
       background: #fff;
@@ -105,10 +107,45 @@
       font-size: 14px;
     }
   </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2NQHJMLJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B2NQHJMLJ6');
+        </script>
+        
 </head>
 <body>
 
-  <div class="container">
+  <!-- Header Section -->
+  <div class="header">
+    <div class="logo">
+      <a href="index.html"><img src="img/Alawusa heritage logo.png" width="150px"></a>
+    </div>
+    <div class="navbar">
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="index.html" style="font-weight: bold;">Home</a></li>
+          <li><a href="products.html" style="font-weight: bold;">Products</a></li>
+          <li><a href="aboutus.html" style="font-weight: bold;">About Us</a></li>
+          <li><a href="contact.html" style="font-weight: bold;">Contact</a></li>
+          <li><a href="account.html" style="font-weight: bold;">Account</a></li>
+          <li><a href="testimonial.html" style="font-weight: bold;">Testimonial</a></li>
+          
+        </ul>
+      </nav>
+      <a href="cart.html">
+            <img src="img/shopping-cart.png" width="30px" height="30px" style="margin-bottom: 40px;">
+            <span id="cart-count" style="background:red; color:white; padding:2px 6px; border-radius:50%; font-size:12px; 
+            position:relative; top:-60px; left:-10px;">0</span>
+            </a>
+      <img src="img/menu bar.png" class="menu-icon" onclick="menutoggle()" style="margin-bottom: 40px;">
+    </div>
+  </div>
+
+  <div class="container-1">
     <h1>Complete Your Payment</h1>
     <p>Please transfer the total amount to the bank account below:</p>
 
@@ -126,10 +163,6 @@
       <input type="text" id="customerName" placeholder="Enter your full name">
     </div>
     <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" id="customerEmail" placeholder="Enter your email address">
-    </div>
-    <div class="form-group">
       <label>Phone Number</label>
       <input type="text" id="customerPhone" placeholder="Enter your phone number">
     </div>
@@ -142,10 +175,46 @@
     <a href="index.html" class="back-btn">← Back to Home</a>
   </div>
 
-  <script>
+
+
+  <!-- Footer -->
+  <div class="footer" style="margin-top: 150px;">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-2">
+          <img src="img/Alawusa heritage logo.png">
+        </div>
+        <div class="footer-col-3">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="blogpost.html">Farm Tips/Blog Post</a></li>
+            <li><a href="ourfarm.html">Our Farm/Sustainability</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-4">
+          <h3>Our Social Media Links</h3>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL">Facebook</a></li>
+            <li><a href="https://www.instagram.com/alawusaheritage">Instagram</a></li>
+            <li><a href="https://wa.link/zp8ngg">Whatsapp</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr><p class="copyright">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+    </div>
+  </div>
+
+<script>
   const total = localStorage.getItem('checkoutTotal') || 0;
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
   document.getElementById('totalAmount').innerText = `₦${parseFloat(total).toLocaleString()}`;
 
   function copyAccountNumber() {
@@ -155,60 +224,44 @@
     });
   }
 
-  // 🔹 Save order to Google Sheet
-  function saveOrder(name, email, phone, address, cart, total) {
-    let cartDetails = cart.map(item => `${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}`).join(", ");
-
-    let orderData = {
-      name: name,
-      email: email,
-      phone: phone,
-      address: address,
-      cart: cartDetails,
-      total: total
-    };
-
-    // 🚨 Replace with your Google Apps Script Web App URL
-    const scriptURL = "https://script.google.com/macros/s/AKfycby5MbO87_g66zgPQPqO3rJz1s-4ztm51lGGhGtBcL0WIDPuwivchs0d7PtFTcAkEZSdsw/exec";
-
-    return fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(orderData),
-      headers: { "Content-Type": "application/json" }
-    })
-    .then(res => res.text())
-    .then(data => {
-      console.log("✅ Order saved:", data);
-    })
-    .catch(err => {
-      console.error("❌ Error saving order:", err);
-    });
-  }
-
-  // 🔹 Modified WhatsApp function
   function sendWhatsApp() {
     let name = document.getElementById("customerName").value.trim();
-    let email = document.getElementById("customerEmail").value.trim();
     let phone = document.getElementById("customerPhone").value.trim();
     let address = document.getElementById("customerAddress").value.trim();
 
-    if (!name || !email || !phone || !address) {
+    if (!name || !phone || !address) {
       alert("Please fill in all your details before proceeding.");
       return false;
     }
 
-    // Save order online first
-    saveOrder(name, email, phone, address, cart, total).then(() => {
-      // Then continue to WhatsApp
-      let cartDetails = "";
-      cart.forEach((item, index) => {
-        cartDetails += `${index + 1}. ${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}\n`;
-      });
+    let cartDetails = cart.map((item, index) =>
+      `${index + 1}. ${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}`
+    ).join("\n");
 
-      const whatsappNumber = "2348022276254"; 
-      const message = `Hello, I just made a payment of ₦${parseFloat(total).toLocaleString()} to your account.\n
+    let totalAmount = `₦${parseFloat(total).toLocaleString()}`;
+    let timestamp = new Date().toLocaleString();
+
+    // ---- SAVE ORDER TO GOOGLE SHEETS ----
+    fetch("https://sheetdb.io/api/v1/supulk4c3weec", {  // Replace with your SheetDB API URL
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: [{
+          Timestamp: timestamp,
+          Name: name,
+          Email: "Not provided",  // optional, update if you add an email field
+          Phone: phone,
+          Cart: cartDetails,
+          Total: totalAmount
+        }]
+      })
+    })
+    .then(res => res.json())
+    .then(() => {
+      // ---- SEND WHATSAPP MESSAGE ----
+      const whatsappNumber = "2348022276254";
+      const message = `Hello, I just made a payment of ${totalAmount} to your account.\n
 Name: ${name}\n
-Email: ${email}\n
 Phone: ${phone}\n
 Address: ${address}\n
 Order Details:\n${cartDetails}\n
@@ -216,10 +269,43 @@ Please find my payment proof attached.`;
 
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
+    })
+    .catch(error => {
+      alert("Error saving order to Google Sheets. Please try again.");
+      console.error("Google Sheets Save Error:", error);
     });
   }
 </script>
 
+
+  <!-- JS Menu Toggle -->
+  <script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
+    function menutoggle() {
+      if (MenuItems.style.maxHeight == "0px") {
+        MenuItems.style.maxHeight = "300px";
+      } else {
+        MenuItems.style.maxHeight = "0px";
+      }
+    }
+  </script>
+
+  <!---Update cart count badge in the navbar--->
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+      cartCount.textContent = totalItems;
+    }
+  }
+
+  // call this on page load
+  updateCartCount();
+
+</script>
+
 </body>
 </html>
-
