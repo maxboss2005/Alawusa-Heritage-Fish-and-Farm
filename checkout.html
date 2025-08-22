@@ -258,6 +258,13 @@
     })
     .then(res => res.json())
     .then(() => {
+
+       // ---- CLEAR THE CART ----
+    localStorage.removeItem('cart');
+    localStorage.removeItem('checkoutTotal');
+    updateCartCount(); // refresh badge count to 0
+
+      
       // ---- SEND WHATSAPP MESSAGE ----
       const whatsappNumber = "2348022276254";
       const message = `Hello, I just made a payment of ${totalAmount} to your account.\n
@@ -309,5 +316,6 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
