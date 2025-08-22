@@ -1202,3 +1202,6 @@ select{
   border-radius: 5px;
   font-family: cursive;
 }
+.logo {
+  filter: brightness(2) contrast(1);
+}
