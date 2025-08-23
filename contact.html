@@ -239,8 +239,43 @@
 
 
   <script src="script.js"></script>
+
+      <script>
+  const newsletterBtn = document.getElementById('newsletter-btn');  // match HTML id
+
+  newsletterBtn.addEventListener('click', function () {
+    const email = document.getElementById('newsletter-email').value.trim(); // match HTML id
+
+    if (!email) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    fetch("https://sheetdb.io/api/v1/7pjxxvpo241l5", {  // your SheetDB URL
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        data: [{ Email: email, Type: "Newsletter" }]
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Thank you for subscribing!");
+      document.getElementById('newsletter-email').value = ""; // clear input
+    })
+    .catch(error => {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    });
+  });
+</script>
+
+      
 </body>
 </html>
+
 
 
 
