@@ -267,17 +267,36 @@
     let totalAmount = `${parseFloat(total).toLocaleString()}`;
     let timestamp = new Date().toLocaleString();
 
-     // ---- PREPARE DATA: one row per product ----
-  let orderRows = cart.map(item => ({
-    Timestamp: timestamp,
-    Name: name,
-    Email: email,
-    Phone: phone,
-    Product: item.name,
-    Quantity: item.quantity,
-    Price: item.price,
-    Total: totalAmount
-  }));
+     // ---- PREPARE DATA ----
+  let orderRows = cart.map((item, index) => {
+    if (index === 0) {
+      // First row: include user info
+      return {
+        Timestamp: timestamp,
+        Name: name,
+        Email: email,
+        Phone: phone,
+        Address: address,
+        Product: item.name,
+        Quantity: item.quantity,
+        Price: item.price,
+        Total: totalAmount
+      };
+    } else {
+      // Subsequent rows: only product details
+      return {
+        Timestamp: "",
+        Name: "",
+        Email: "",
+        Phone: "",
+        Address: "",
+        Product: item.name,
+        Quantity: item.quantity,
+        Price: item.price,
+        Total: ""
+      };
+    }
+  });
 
     // ---- SAVE ORDER TO GOOGLE SHEETS ----
     fetch("https://sheetdb.io/api/v1/supulk4c3weec", {  // Replace with your SheetDB API URL
@@ -345,6 +364,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
