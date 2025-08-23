@@ -270,7 +270,6 @@
      // ---- PREPARE DATA ----
   let orderRows = cart.map((item, index) => {
     let lineTotal = item.price * item.quantity; // price × quantity
-
     if (index === 0) {
       // First row: include user info
       return {
@@ -281,8 +280,9 @@
         Address: address,
         Product: item.name,
         Quantity: item.quantity,
-        Price: lineTotal,
-        Total: totalAmount
+        Price: item.price,
+        Total: lineTotal,
+        FinalTotal: totalAmount
       };
     } else {
       // Subsequent rows: only product details
@@ -294,12 +294,12 @@
         Address: "",
         Product: item.name,
         Quantity: item.quantity,
-        Price: lineTotal,
-        Total: ""
+        Price: item.price,
+        Total: lineTotal,
+        FinalTotal: totalAmount
       };
     }
   });
-
     // ---- SAVE ORDER TO GOOGLE SHEETS ----
     fetch("https://sheetdb.io/api/v1/supulk4c3weec", {  // Replace with your SheetDB API URL
       method: "POST",
@@ -366,6 +366,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
