@@ -121,6 +121,11 @@
       border: 1px solid #ccc;
       font-size: 14px;
     }
+    .optional {
+      color: #666;
+      font-size: 0.85em;
+      margin-top: 5px;
+    }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2NQHJMLJ6"></script>
@@ -176,6 +181,10 @@
     <div class="form-group">
       <label>Full Name</label>
       <input type="text" id="customerName" placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+      <label>Email <span class="optional">(optional)</span></label>
+      <input type="text" id="customerEmail" placeholder="Enter your email address">
     </div>
     <div class="form-group">
       <label>Phone Number</label>
@@ -243,6 +252,7 @@
   function sendWhatsApp() {
     let name = document.getElementById("customerName").value.trim();
     let phone = document.getElementById("customerPhone").value.trim();
+    let email = document.getElementById("customerEmail").value.trim();
     let address = document.getElementById("customerAddress").value.trim();
 
     if (!name || !phone || !address) {
@@ -265,9 +275,10 @@
         data: [{
           Timestamp: timestamp,
           Name: name,
-          Email: "Not provided",  // optional, update if you add an email field
+          Email: email,
           Phone: phone,
           Cart: cartDetails,
+          
           Total: totalAmount
         }]
       })
@@ -280,11 +291,12 @@
     localStorage.removeItem('checkoutTotal');
     updateCartCount(); // refresh badge count to 0
 
-      
+    
       // ---- SEND WHATSAPP MESSAGE ----
       const whatsappNumber = "2348022276254";
       const message = `Hello, I just made a payment of ${totalAmount} to your account.\n
 Name: ${name}\n
+Email: ${email}\n
 Phone: ${phone}\n
 Address: ${address}\n
 Order Details:\n${cartDetails}\n
@@ -294,12 +306,11 @@ Please find my payment proof attached.`;
       window.open(url, "_blank");
     })
     .catch(error => {
-      alert("Error saving order to Google Sheets. Please try again.");
+      alert("Error saving order. Please try again.");
       console.error("Google Sheets Save Error:", error);
     });
   }
 </script>
-
 
   <!-- JS Menu Toggle -->
   <script>
@@ -332,6 +343,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
