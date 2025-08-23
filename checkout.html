@@ -267,21 +267,23 @@
     let totalAmount = `${parseFloat(total).toLocaleString()}`;
     let timestamp = new Date().toLocaleString();
 
+     // ---- PREPARE DATA: one row per product ----
+  let orderRows = cart.map(item => ({
+    Timestamp: timestamp,
+    Name: name,
+    Email: email,
+    Phone: phone,
+    Product: item.name,
+    Quantity: item.quantity,
+    Price: item.price,
+    Total: totalAmount
+  }));
+
     // ---- SAVE ORDER TO GOOGLE SHEETS ----
     fetch("https://sheetdb.io/api/v1/supulk4c3weec", {  // Replace with your SheetDB API URL
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: [{
-          Timestamp: timestamp,
-          Name: name,
-          Email: email,
-          Phone: phone,
-          Cart: cartDetails,
-          
-          Total: totalAmount
-        }]
-      })
+      body: JSON.stringify({ data: orderRows })
     })
     .then(res => res.json())
     .then(() => {
@@ -343,6 +345,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
