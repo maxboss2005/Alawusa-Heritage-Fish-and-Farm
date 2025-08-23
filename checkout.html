@@ -269,6 +269,8 @@
 
      // ---- PREPARE DATA ----
   let orderRows = cart.map((item, index) => {
+    let lineTotal = item.price * item.quantity; // price × quantity
+
     if (index === 0) {
       // First row: include user info
       return {
@@ -279,7 +281,7 @@
         Address: address,
         Product: item.name,
         Quantity: item.quantity,
-        Price: item.price,
+        Price: lineTotal,
         Total: totalAmount
       };
     } else {
@@ -292,7 +294,7 @@
         Address: "",
         Product: item.name,
         Quantity: item.quantity,
-        Price: item.price,
+        Price: lineTotal,
         Total: ""
       };
     }
@@ -364,6 +366,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
