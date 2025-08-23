@@ -264,7 +264,7 @@
       `${index + 1}. ${item.name} (x${item.quantity}) - ₦${item.price.toLocaleString()}`
     ).join("\n");
 
-    let totalAmount = `₦${parseFloat(total).toLocaleString()}`;
+    let totalAmount = `${parseFloat(total).toLocaleString()}`;
     let timestamp = new Date().toLocaleString();
 
     // ---- SAVE ORDER TO GOOGLE SHEETS ----
@@ -343,6 +343,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
