@@ -279,7 +279,8 @@
         Product: item.name,
         Quantity: item.quantity,
         Price: item.price,
-        Total: totalAmount
+        ItemTotal: item.quantity * item.price,
+        OrderTotal: totalAmount
       };
     } else {
       // Subsequent rows: only product details
@@ -291,7 +292,8 @@
         Product: item.name,
         Quantity: item.quantity,
         Price: item.price,
-        Total: ""
+        ItemTotal: item.quantity * item.price,
+        OrderTotal: totalAmount
       };
     }
   });
@@ -361,6 +363,7 @@ Please find my payment proof attached.`;
 
 </body>
 </html>
+
 
 
 
