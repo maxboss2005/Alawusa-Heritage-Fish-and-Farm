@@ -32,6 +32,100 @@
       animation: zoom-in-out 2s;
     }
 
+            /* Overlay background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Active state */
+.popup.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Popup box */
+.popup-content {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.4s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close-btn:hover {
+  color: #000;
+}
+
+/* Email input */
+.popup-content input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Get coupon button */
+.popup-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.popup-content button:hover {
+  background-color: #218838;
+}
+
+/* Prevent scrolling while popup is open */
+body.popup-open {
+  overflow: hidden;
+}
+
+
     
         </style>
 
@@ -46,6 +140,31 @@
     </head>
 
     <body>
+
+        <div id="popup" class="popup active">
+  <div class="popup-content">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <h2>Sign up for a 10% Coupon!</h2>
+    <p id="popup-message">Enter your email to receive your discount code.</p>
+    
+    <div id="form-section">
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <button id="getCouponBtn">Get Coupon</button>
+    </div>
+
+    <div id="coupon-section" style="display:none; margin-top:20px;">
+      <p><strong>Your Coupon Code:</strong></p>
+      <div style="display:flex; justify-content:center; align-items:center; gap:10px;">
+        <input type="text" id="couponCodeDisplay" readonly 
+          style="padding:8px; border:1px solid #ccc; border-radius:6px; width:70%; text-align:center; font-weight:bold; font-size:16px;">
+        <button id="copyBtn" style="background:#007bff; border:none; color:white; padding:8px 12px; border-radius:6px; cursor:pointer;">Copy</button>
+      </div>
+      <p style="font-size:12px; color:gray; margin-top:5px;">Use this at checkout for 10% off</p>
+    </div>
+  </div>
+</div>
+
+        
         <div class="header">
             <div class="logo">
                 <a href="index.html"><img src="Alawusa heritage logo.png" width="150px"></a>
@@ -405,9 +524,79 @@
   });
 </script>
 
+<script>
+  const popup = document.getElementById('popup');
+  const closePopupBtn = document.getElementById('closePopup');
+  const getCouponBtn = document.getElementById('getCouponBtn');
+  const emailInput = document.getElementById('emailInput');
+  const couponSection = document.getElementById('coupon-section');
+  const formSection = document.getElementById('form-section');
+  const couponDisplay = document.getElementById('couponCodeDisplay');
+  const copyBtn = document.getElementById('copyBtn');
 
+  // Generate a unique coupon code
+  function generateUniqueCode(email) {
+    const random = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const hash = btoa(email).substring(0, 4).toUpperCase();
+    return `ALAW-${hash}-${random}`;
+  }
+
+  // On page load, show popup
+  window.addEventListener('load', () => {
+    popup.classList.add('active');
+    document.body.classList.add('popup-open');
+  });
+
+  // Close popup
+  closePopupBtn.addEventListener('click', () => {
+    popup.classList.remove('active');
+    document.body.classList.remove('popup-open');
+  });
+
+  // Get coupon code
+getCouponBtn.addEventListener('click', () => {
+  const email = emailInput.value.trim();
+
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email!');
+    return;
+  }
+
+  // Check if this email already registered
+  const savedEmail = localStorage.getItem('couponEmail');
+  if (savedEmail && savedEmail === email) {
+    alert('This email has already been used to claim a coupon.');
+    return;
+  }
+
+ 
+
+  
+
+
+    // Create and save code
+    const couponCode = generateUniqueCode(email);
+    localStorage.setItem('couponEmail', email);
+    localStorage.setItem('couponCode', couponCode);
+
+    // Update UI
+    formSection.style.display = 'none';
+    couponSection.style.display = 'block';
+    couponDisplay.value = couponCode;
+  });
+
+  // Copy code
+  copyBtn.addEventListener('click', () => {
+    couponDisplay.select();
+    couponDisplay.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => { copyBtn.textContent = "Copy"; }, 1500);
+  });
+</script>
 
     </body>
 
 </html>
+
 
