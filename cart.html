@@ -169,15 +169,31 @@
     </table>
     </div>
 
-    <div class="cart-totals" id="summary">
-      <p>Cart Subtotal: <span id="subtotal">0</span></p>
-      <p>VAT (7.5%): <span id="vat">0</span></p>
+    
+
+  <div class="cart-totals" id="summary">
+  <p>Cart Subtotal: <span id="subtotal">0</span></p>
+  <p>VAT (7.5%): <span id="vat">0</span></p>
   <p>Shipping: <span id="shipping">2000</span></p>
+  <p id="discount-row" style="display:none; color:green; font-weight:bold;">
+    Discount (10%): <span id="discount">0</span>
+  </p>
+  
+  <input type="text" id="coupon-input" placeholder="Enter coupon code"
+         style="padding:8px; width:200px; border:1px solid #ccc; border-radius:5px;">
+  <button onclick="applyCoupon()" 
+          style="padding:8px 12px; background:#4caf50; color:white; border:none; border-radius:5px; cursor:pointer;">
+    Apply
+  </button>
+</div>
+<br>
+
   <hr>
-      <p><strong>Total: <span id="total">0</span></strong></p>
-      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-    </div>
-  </div>
+
+  <p style="text-align: right;"><strong>Total: <span id="total">0</span></strong></p><br>
+  <button class="checkout-btn" onclick="checkout()" style="float: right; margin-top: -15px;">Proceed to Checkout</button>
+</div>
+
 
   <!-- Newsletter -->
 <div class="newsletter">
@@ -190,6 +206,7 @@
     <button class="normal" id="newsletter-btn">Sign Up</button>
   </div>
 </div>
+
 
   <!-- Footer -->
   <div class="footer" style="margin-top: 150px;">
@@ -240,8 +257,27 @@
   </script>
 
   <!-- Cart JS -->
-<script> 
+<script>
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // ✅ Standalone function for coupon application
+  function applyCoupon() {
+    const enteredCode = document.getElementById('coupon-input').value.trim();
+    const savedCode = localStorage.getItem('couponCode');
+
+    if (!enteredCode) {
+      alert("Please enter a coupon code.");
+      return;
+    }
+
+    if (savedCode && enteredCode === savedCode) {
+      localStorage.setItem('couponApplied', 'true');
+      alert("Coupon applied successfully! 10% discount added.");
+      renderCart();
+    } else {
+      alert("Invalid or expired coupon code.");
+    }
+  }
 
   function renderCart() {
     const tbody = document.querySelector("#cart-table tbody");
@@ -250,6 +286,7 @@
     let subtotal = 0;
     let totalShipping = 0;
 
+    // Build cart rows
     cart.forEach((item, index) => {
       const itemSubtotal = item.price * item.quantity;
       const itemShipping = item.shipping * item.quantity;
@@ -273,11 +310,26 @@
       tbody.appendChild(row);
     });
 
+    // VAT & Shipping
     const vatRate = 0.075;
     const vatAmount = subtotal * vatRate;
-    const grandTotal = subtotal + vatAmount + totalShipping;
 
-    // Update the summary section
+    // ✅ Check for applied coupon
+    const couponApplied = localStorage.getItem('couponApplied') === 'true';
+    let discountAmount = 0;
+
+    if (couponApplied) {
+      discountAmount = subtotal * 0.10;
+      document.getElementById('discount-row').style.display = 'block';
+      document.getElementById('discount').innerText = `-₦${discountAmount.toLocaleString()}`;
+    } else {
+      document.getElementById('discount-row').style.display = 'none';
+    }
+
+    // Final total
+    const grandTotal = subtotal + vatAmount + totalShipping - discountAmount;
+
+    // Update UI
     document.getElementById('subtotal').innerText = `₦${subtotal.toLocaleString()}`;
     document.getElementById('shipping').innerText = `₦${totalShipping.toLocaleString()}`;
     document.getElementById('vat').innerText = `₦${vatAmount.toFixed(2).toLocaleString()}`;
@@ -291,21 +343,21 @@
   }
 
   function checkout() {
-  if (cart.length === 0) {
-    alert("Your cart is empty. Please add items before proceeding to checkout.");
-    return;
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add items before proceeding to checkout.");
+      return;
+    }
+    const total = document.getElementById('total').innerText.replace(/₦|,/g, "");
+    localStorage.setItem('checkoutTotal', total);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = "checkout.html";
   }
 
-  const total = document.getElementById('total').innerText.replace(/₦|,/g, "");
-  localStorage.setItem('checkoutTotal', total);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  window.location.href = "checkout.html";
-}
-
-
-
+  // Render cart on load
   renderCart();
 </script>
+
+
 
     <!---Update cart count badge in the navbar--->
 <script>
@@ -323,7 +375,7 @@
 
 </script>
 
-  <script>
+<script>
   const newsletterBtn = document.getElementById('newsletter-btn');  // match HTML id
 
   newsletterBtn.addEventListener('click', function () {
@@ -355,10 +407,7 @@
   });
 </script>
 
+
+
 </body>
 </html>
-
-
-
-
-
