@@ -9,7 +9,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 .logo img{
-    width: 150px;
+    width: 100px;
 }
 
 /* Hero Section */
@@ -99,13 +99,67 @@ body {
   }
 }
 
+/* Flex layout for header */
 .header {
-  display:flex;
-  align-items: center; /* Vertically center logo & nav */
-  justify-content: space-between; /* Push logo left, nav right */
-  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
   background-color: #fdfafa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
 }
+
+/* Menu list styles */
+.menu-items ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu-items ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.menu-items ul li a:hover {
+  color: #15921b;
+}
+
+/* Right button */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-btn {
+  background: #15921b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.header-btn:hover {
+  background: brown;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .menu-items ul {
+    display: none; /* Hide full menu on mobile */
+  }
+
+  .header-right {
+    margin-left: auto;
+  }
+}
+
 .navbar{
     display: flex;
     align-items: center;
@@ -1206,3 +1260,53 @@ select{
   filter: brightness(2) contrast(1);
 }
 
+/* Accordion toggle button */
+.accordion-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 22px;
+  padding: 12px;
+  cursor: pointer;
+  color: #f7f4f4;
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Arrow rotation */
+.accordion-toggle .arrow {
+  transition: transform 0.3s ease;
+}
+.accordion-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Accordion box */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: none; /* box effect */
+  border-radius: 1px;
+  margin: 5px 0;
+  padding-left: 15px;
+}
+
+/* Inner links */
+.accordion-content li a{
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  color: #921515;
+  text-decoration: none;
+}
+
+.accordion-content li a:hover {
+  background: #eee;
+  color: #218838;
+  border-radius: 4px;
+}

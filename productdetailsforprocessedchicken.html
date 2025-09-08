@@ -20,41 +20,386 @@
             gtag('js', new Date());
             gtag('config', 'G-B2NQHJMLJ6');
         </script>
+
+        <style>
+          /* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close-btn:hover {
+  color: #000;
+}
+
+/* Email input */
+.popup-content input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Name input */
+.popup-content input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Get coupon button */
+.popup-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.popup-content button:hover {
+  background-color: #218838;
+}
+
+/* Prevent scrolling while popup is open */
+body.popup-open {
+  overflow: hidden;
+}
+
+
+
+/* Desktop navbar */
+.navbar ul {
+  display: flex;
+  gap: 20px; /* reduced spacing */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  margin-left: 210px;
+  margin-top: 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #555;
+  transition: color 0.3s;
+  margin: 0 -100px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.navbar ul li a:hover {
+  color: #15921b;
+}
+
+/* Mobile toggle button */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu panel */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgb(4, 49, 12);
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 2000;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu .close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 20px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #f5f3f3;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  line-height: 3.5;
+}
+
+.mobile-menu ul li a:hover {
+  background: #f0f0f0;
+  color: #218838;
+}
+.menu-icon{
+  display: none;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .shopping-cart {
+    margin-left: 150px;
+  }
+}
+
+
+
+
+/* Sticky header */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Top bar with contacts */
+.top-bar {
+  background: #2e802e;
+  color: white;
+  padding: 5px 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    font-size: 12px;
+    color: #000;
+  }
+}
+
+.contact-info span {
+  margin: 0 10px;
+}
+
+
+.footer img {
+  margin-bottom: -100px;
+}
+
+.footer h3, ul li{
+  margin-left: 150px;
+}
+
+@media (max-width: 768px) {
+  .footer h3, ul li{
+    margin-left: 0;
+}
+}
+
+.cart-count {
+  background: red;
+  color: white;
+  padding: 2px 6px; 
+  border-radius: 50%; 
+  font-size: 12px;
+  position: relative; 
+  top: -60px; 
+  left: -10px;
+}
+
+@media (max-width: 768px) {
+  .cart-count {
+    background: red;
+    color: white;
+    padding: 2px 6px; 
+    border-radius: 50%; 
+    font-size: 12px;
+    position: relative;
+    top: -60px; 
+    left: -10px;
+    margin-left: 180px;
+}
+}
+
+.shopping-cart {
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .shopping-cart {
+    margin-bottom: 20px;
+    
+  }
+  .address {
+    display: none;
+  }
+}
+
+.desktop-footer-1 {
+  display: flex;
+}
+
+.desktop-footer-1 ul li {
+  font-size: 15px;
+}
+.desktop-footer-1 ul{
+  font-size: 20px;
+}
+
+
+.mobile-footer {
+  display: none;
+}
+
+.media-links{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    margin-left: -600px;
+    
+  }
+   
+  .footer  {
+  background-color: rgb(15, 44, 15);
+}
+
+
+@media (max-width: 768px) {
+  .mobile-footer {
+    display: block;
+  }
+  .desktop-footer {
+    display: none;
+  }
+  .media-links{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -70px;
+    margin-bottom: 120px;
+    margin-left: 0px;
+  }
+  .mobile-footer-1 h3{
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .footer  {
+  background-color: rgb(15, 44, 15);
+}
+
+}
+        </style>
         
     </head>
 
     <body>
+        <header class="main-header">
+
+    <div class="top-bar">
+    <div class="contact-info">
+      <span style="margin-right: 20px; margin-left: -15px;">📞 +234-802-227-6254</span>
+      <span style="margin-right: 0px; margin-left: 21px;">📧 alawusaheritage@gmail.com</span>
+      <span class="address">📍  Alawusa-House, Hungotho, Tube, Ipokia LG, Ogun State</span>
+    </div>
+  </div>
+
+  
+        
         <div class="header">
             <div class="logo">
                 <a href="index.html"><img src="Alawusa heritage logo.png" width="150px"></a>
             </div>
-             <div class="navbar">
-           
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html" style="font-weight: bold;">Home</a></li>
-                    <li><a href="products.html" style="font-weight: bold;">Products</a></li>
-                    <li><a href="aboutus.html" style="font-weight: bold;">About Us</a></li>
-                    <li><a href="contact.html" style="font-weight: bold;">Contact</a></li>
-                    <li><a href="account.html" style="font-weight: bold;">Account</a></li>
-                    <li><a href="testimonial.html" style="font-weight: bold;">Testimonial</a></li>
-                    
-            </nav>
+
+            <!-- Desktop Menu -->
+  <nav class="navbar desktop-nav">
+    <ul>
+      
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="testimonial.html">Testimonial</a></li>
+      <li><a href="account.html">Account</a></li>
+    </ul>
+  </nav>
+
+            
+
+
             <a href="cart.html">
-            <img src="shopping-cart.png" width="30px" height="30px" style="margin-bottom: 40px;">
-            <span id="cart-count" style="background:red; color:white; padding:2px 6px; border-radius:50%; font-size:12px; 
-            position:relative; top:-60px; left:-10px;">0</span>
+            <img src="shopping-cart.png" width="30px" height="30px"  class="shopping-cart">
+            <span id="cart-count" class="cart-count">0</span>
             </a>
-            <img src="menu bar.png" class="menu-icon" onclick="menutoggle()" style="margin-bottom: 40px;">
+            <img src="menu bar.png" class="menu-icon" onclick="openMenu()" style="margin-bottom: 40px;">
             </div>
         </div>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <button class="close-btn" onclick="closeMenu()">×</button>
+  <ul>
+    <!-- Home with accordion -->
+    <li class="accordion-item">
+      <button class="accordion-toggle">Home <span class="arrow">▼</span></button>
+      <ul class="accordion-content">
+        <li><a href="index.html#categories" style="color: #000; font-size: 12px; line-height: 0;">Featured Categories</a></li>
+        <li><a href="index.html#fproducts" style="color: #000; font-size: 12px; line-height: 0;">Featured Products</a></li>
+        <li><a href="index.html#lproducts" style="color: #000; font-size: 12px; line-height: 0;">Lastest Products</a></li>
+      </ul>
+    </li>
+
+    <!-- Other normal menu items -->
+    <li><a href="products.html">Products</a></li>
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="testimonial.html">Testimonial</a></li>
+    <li><a href="account.html">Account</a></li>
+  </ul>
+</div>
+
        
         </div>
     </div>
 
 
             <!--single product details-->
-            <div class="product" data-id="4" data-name="Alawusa Farm-Fresh Full Processed Chicken" data-image="processed chicken sticker.png" data-shipping="2000">
+            <div id="head" class="product" data-id="4" data-name="Alawusa Farm-Fresh Full Processed Chicken" data-image="processed chicken sticker.png" data-shipping="2000">
             <div class="small-container single-product">
                 <div class="row">
                     <div class="col-2">
@@ -139,7 +484,7 @@
             <div class="row">
                 <div class="col-4" data-aos="fade-up">
                     <a href="productdetailsforlivechicken.html">
-                    <img src="Live chicken sticker.png" style="height: 150px; width: 110%">
+                    <img src="Live chicken sticker.png" style="height: 150px;">
                                 <div class="text" style="margin-left: 20px;">
                                   <h3>Alawusa Farm-Fresh Live Chicken</h3>
                                 <p>Category: Poultry & Eggs</p>
@@ -157,9 +502,9 @@
                 </div>
 
                 <div class="col-4" data-aos="fade-up">
-                    <a href="productdetailsfor1kgprocessedchicken.html">
+                    <a href="productdetailsforprocessedchicken.html">
                     <img src="processed chicken sticker.png">
-                                <div class="text" style="width: 110%">
+                                <div class="text" style="margin-left: 20px;">
                                   <h3>Alawusa Farm-Fresh 1kg Processed Chicken</h3>
                                 <p>Category: Poultry & Eggs</p>
                                 <div class="rating">
@@ -177,7 +522,7 @@
 
                 <div class="col-4" data-aos="fade-up">
                     <a href="productdetailsforeggs30holes.html">
-                    <img src="Chicken Eggs 30 holes sticker.png" style="height: 150px; width: 110%">
+                    <img src="Chicken Eggs 30 holes sticker.png" style="height: 150px;">
                                 <div class="text" style="margin-left: 20px;">
                                   <h3>Chicken Eggs in 30 holes</h3>
                                 <h4>Transparent Pack</h4>
@@ -196,7 +541,7 @@
 
                 <div class="col-4" data-aos="fade-up">
                     <a href="productdetailsforeggs15holes.html">
-                    <img src="Chicken Eggs 15 holes sticker.png" style="height: 150px; width: 110%">
+                    <img src="Chicken Eggs 15 holes sticker.png" style="height: 150px;">
                                 <div class="text" style="margin-left: 20px;">
                                   <h3>Chicken Eggs in 15 holes</h3>
                                 <h4>Transparent Pack</h4>
@@ -223,46 +568,77 @@
     
     
 
-    <!----Footer---->
-    <div class="footer" style="padding: 5px 0 0px;">
+    <!---Footer for Desktop--->
+    <div class="desktop-footer">
+      <div class="footer">
         <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>
-                       Customer Service
-                    </h3>
-                    <ul>
-                        <li><a href="faq.html">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col-2">
-                    <img src="Alawusa heritage logo.png" class="logo-1">
-                    
-                </div>
-                <div class="footer-col-3">
-                    <h3>
-                       Useful Links
-                    </h3>
-                    <ul>
-                        <li><a href="blogpost.html">Farm Tips/Blog Post</a></li><br>
-                        <li><a href="ourfarm.html">Our Farm/Sustainability</a></li><br>
-                        <li><a href="recipes.html">Recipes</a></li><br>
-                        <li><a href="aboutus.html">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>
-                       Our Social Media Links
-                    </h3>
-                    <ul>
-                        <li><a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ==">Instagram</a></li>
-                        <li><a href="https://wa.link/zp8ngg">Whatsapp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr><p class="copyright">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+          
+            
+
+
+                <div class="desktop-footer-1" style="color: white; justify-content: space-between;">
+
+                  <a href="#head"><img src="Alawusa heritage logo.png" class="logo-1" width="200px"></a>
+
+                  <ul style="margin-top: 50px;">
+                  <h3>Customer Service</h3>
+                    <li><a href="faq.html" style="color: white;">FAQs</a></li>
+                  </ul>
+
+                  <ul style="margin-top: 50px;">
+                    <h3>Useful Links</h3>
+                  
+                       <li><a href="blogpost.html" style="color: white;">Farm Tips/Blog Post</a></li>
+                        <li><a href="ourfarm.html" style="color: white;">Our Farm/Sustainability</a></li>
+                        <li><a href="recipes.html" style="color: white;">Recipes</a></li>
+                        <li><a href="aboutus.html" style="color: white;">About Us</a></li>
+                  </ul>
+                       
+
+                    <div class="media-links">
+                      <a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL"><img src="facebook.png" style="width: 40px; margin-right: 250px;"></a></p>
+                      <a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ=="><img src="instagram.png" style="width: 40px; margin-right: 250px;"></a></p>
+                      <a href="https://wa.link/zp8ngg"><img src="whatsapp.png" style="width: 40px; margin-right: 250px;"></a></p>
+                    </div>
         </div>
+        
+                
+            <hr style="color: white;"><p class="copyright" style="color: #fff;">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!---Footer for Mobile--->
+    <div class="mobile-footer">
+      <div class="footer">
+        <div class="container">
+          
+            
+
+
+                <div class="mobile-footer-1" style="color: white;">
+                    <a href="faq.html"><h3>FAQs</h3></a>
+                       <a href="blogpost.html"><h3>Farm Tips/Blog Post</h3></a>
+                        <a href="ourfarm.html"><h3>Our Farm/Sustainability</h3></a>
+                        <a href="recipes.html"><h3>Recipes</h3></a>
+                        <a href="aboutus.html"><h3>About Us</h3></a>
+
+                        <a href="#head" ><h3 style="font-size: 12px;">SCROLL UP</h3></a>
+                       
+
+                    <div class="media-links">
+                      <a href="https://www.facebook.com/profile.php?id=61577588632364&mibextid=ZbWKwL"><img src="facebook.png" style="width: 20px;"></a></p>
+                      <a href="https://www.instagram.com/alawusaheritage?igsh=MXJnbHJ5dGtlOGs0eQ=="><img src="instagram.png" style="width: 20px;"></a></p>
+                      <a href="https://wa.link/zp8ngg"><img src="whatsapp.png" style="width: 20px;"></a></p>
+                    </div>
+        </div>
+        
+                
+            <hr style="color: white;"><p class="copyright" style="color: #fff;">Copyright 2025 - Alawusa Heritage Fish & Farms</p>
+        </div>
+      </div>
     </div>
 
     <!-------js script for menu toggle------>
@@ -404,12 +780,40 @@
   });
 </script>
 
+<script>
+  function openMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+  }
+
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+
+<script>
+document.querySelectorAll(".accordion-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const content = button.nextElementSibling;
+
+    // Close all other accordions
+    document.querySelectorAll(".accordion-content").forEach(menu => {
+      if (menu !== content) {
+        menu.style.maxHeight = null;
+        menu.previousElementSibling.classList.remove("active");
+      }
+    });
+
+    // Toggle this one
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      button.classList.remove("active");
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      button.classList.add("active");
+    }
+  });
+});
+</script>
+
     </body>
-
 </html>
-
-
-
-
-
-
